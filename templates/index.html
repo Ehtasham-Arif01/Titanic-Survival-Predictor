@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Titanic Survival Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container" aria-label="Titanic Survival Prediction Form">
+        <h1><span class="icon" aria-hidden="true">🚢</span> Titanic Survival Prediction</h1>
+        <p style="color:#6c8cff; margin-top:-18px; margin-bottom:28px; font-size:1.08em; font-weight:500;">Enter your details to see your chances of survival</p>
+        <form action="/predict" method="post" autocomplete="on">
+            <div class="form-group floating-label">
+                <select name="pclass" id="pclass" required aria-label="Passenger Class">
+                    <option value="" disabled selected hidden></option>
+                    <option value="1">1 (Upper)</option>
+                    <option value="2">2 (Middle)</option>
+                    <option value="3">3 (Lower)</option>
+                </select>
+                <label for="pclass">Class <span class="hint">(1=Upper, 2=Middle, 3=Lower)</span></label>
+            </div>
+
+            <div class="form-group floating-label">
+                <select name="sex" id="sex" required aria-label="Sex">
+                    <option value="" disabled selected hidden></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <label for="sex">Sex</label>
+            </div>
+
+            <div class="form-group floating-label">
+                <input type="number" name="age" id="age" min="1" max="100" required placeholder=" " aria-label="Age">
+                <label for="age">Age <span class="hint">(1 - 100)</span></label>
+            </div>
+
+            <div class="form-group floating-label">
+                <input type="number" name="sibsp" id="sibsp" min="0" max="8" required placeholder=" " aria-label="Siblings or Spouses Aboard">
+                <label for="sibsp">Siblings/Spouses Aboard <span class="hint">(0 - 8)</span></label>
+            </div>
+
+            <div class="form-group floating-label">
+                <input type="number" name="parch" id="parch" min="0" max="6" required placeholder=" " aria-label="Parents or Children Aboard">
+                <label for="parch">Parents/Children Aboard <span class="hint">(0 - 6)</span></label>
+            </div>
+
+            <div class="form-group floating-label">
+                <input type="number" name="fare" id="fare" step="0.01" min="0" max="512.33" required placeholder=" " aria-label="Fare">
+                <label for="fare">Fare <span class="hint">(0 - 512.33)</span></label>
+            </div>
+
+            <div class="form-group floating-label">
+                <select name="embarked" id="embarked" required aria-label="Port of Embarkation">
+                    <option value="" disabled selected hidden></option>
+                    <option value="C">Cherbourg</option>
+                    <option value="Q">Queenstown</option>
+                    <option value="S">Southampton</option>
+                </select>
+                <label for="embarked">Embarked</label>
+            </div>
+
+            <button type="submit" aria-label="Predict Survival"><span class="icon" aria-hidden="true">🔮</span> Predict</button>
+        </form>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ehtasham-arif-89aa402b0/" target="_blank" class="social-btn linkedin">
+                <span class="social-icon">💼</span> LinkedIn
+            </a>
+            <a href="https://github.com/Ehtasham-Arif01" target="_blank" class="social-btn github">
+                <span class="social-icon">🐙</span> GitHub
+            </a>
+        </div>
+    </main>
+</body>
+</html>

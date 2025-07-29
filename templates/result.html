@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container" aria-label="Prediction Result">
+        <h1><span class="icon" aria-hidden="true">📊</span> Prediction Result</h1>
+        <p style="color:#6c8cff; margin-top:-18px; margin-bottom:24px; font-size:1.08em; font-weight:500;">Here is your Titanic survival prediction</p>
+        <section class="result {{ 'survived' if prediction == 'Survived' else 'not-survived' }}" aria-live="polite">
+            {% if prediction == 'Survived' %}
+                <span class="emoji" aria-hidden="true">🎉</span> <span><strong>Congratulations!</strong> You would have <strong>Survived</strong>!</span>
+            {% elif prediction == 'Not Survived' %}
+                <span class="emoji" aria-hidden="true">💔</span> <span><strong>Sorry,</strong> you would have <strong>Not Survived</strong>.</span>
+            {% else %}
+                <span class="emoji" aria-hidden="true">❗</span> <span>{{ prediction }}</span>
+            {% endif %}
+        </section>
+        <a class="back-btn" href="/" aria-label="Try Again">🔙 Try Again</a>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ehtasham-arif-89aa402b0/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin">
+                <span class="social-icon">💼</span> LinkedIn
+            </a>
+            <a href="https://github.com/Ehtasham-Arif01" target="_blank" rel="noopener noreferrer" class="social-btn github">
+                <span class="social-icon">🐙</span> GitHub
+            </a>
+        </div>
+    </main>
+</body>
+</html>
